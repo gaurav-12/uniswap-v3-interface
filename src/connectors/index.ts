@@ -1,4 +1,5 @@
-import { ChainId } from '@alagunoff/uniswap-sdk-core'
+// import { ChainId } from '@alagunoff/uniswap-sdk-core'
+import { ChainId } from 'constants/constants'
 import { Web3Provider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import getLibrary from '../utils/getLibrary'

@@ -1,4 +1,5 @@
-import { ChainId, Token } from '@alagunoff/uniswap-sdk-core'
+import { Token } from '@alagunoff/uniswap-sdk-core'
+import { ChainId } from 'constants/constants'
 
 export const METALAMP = {
   [ChainId.POLYGON_AMOY]: new Token(

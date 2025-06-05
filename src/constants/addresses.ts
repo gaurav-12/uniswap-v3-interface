@@ -1,4 +1,5 @@
-import { ChainId } from '@alagunoff/uniswap-sdk-core'
+// import { ChainId } from '@alagunoff/uniswap-sdk-core'
+import { ChainId } from 'constants/constants'
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 
 export const MULTICALL2_ADDRESSES = {

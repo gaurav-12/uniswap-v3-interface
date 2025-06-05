@@ -1,5 +1,6 @@
 // a list of tokens by chain
-import { ChainId, Token, WETH9 } from '@alagunoff/uniswap-sdk-core'
+import { Token } from '@alagunoff/uniswap-sdk-core'
+import { ChainId, WETH9 } from 'constants/constants'
 import { METALAMP, USDT, USDC, WBTC } from './tokens'
 
 type ChainTokenList = {

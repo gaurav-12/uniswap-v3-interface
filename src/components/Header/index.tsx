@@ -1,4 +1,5 @@
-import { ChainId } from '@alagunoff/uniswap-sdk-core'
+// import { ChainId } from '@alagunoff/uniswap-sdk-core'
+import { ChainId } from 'constants/constants'
 import useScrollPosition from '@react-hook/window-scroll'
 import React from 'react'
 import { Text } from 'rebass'

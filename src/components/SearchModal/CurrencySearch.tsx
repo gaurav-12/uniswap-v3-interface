@@ -1,4 +1,5 @@
-import { ChainId, Currency, ETHER, POL, Token } from '@alagunoff/uniswap-sdk-core'
+import { Currency, ETHER, POL, Token } from '@alagunoff/uniswap-sdk-core'
+import { ChainId } from 'constants/constants'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
