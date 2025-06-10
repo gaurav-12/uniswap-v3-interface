@@ -326,7 +326,7 @@ export function PositionPage({
     return undefined
   }, [liquidity, pool, tickLower, tickUpper])
 
-  let { priceLower, priceUpper, base, quote } = getPriceOrderingFromPositionForUI(position)
+  let { priceLower, priceUpper, base, quote } = getPriceOrderingFromPositionForUI(position, chainId)
   const [manuallyInverted, setManuallyInverted] = useState(false)
   // handle manual inversion
   if (manuallyInverted) {

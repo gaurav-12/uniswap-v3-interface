@@ -235,6 +235,8 @@ export const StyledMenuButton = styled.button`
 
 const NETWORK_LABELS: { [chainId in ChainId]: string } = {
   [ChainId.POLYGON_AMOY]: 'Polygon Amoy',
+  [ChainId.BSC_TESTNET]: 'BSC Testnet',
+  [ChainId.BSC]: 'BSC Mainnet',
 }
 
 export default function Header() {

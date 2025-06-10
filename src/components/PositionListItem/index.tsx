@@ -17,6 +17,8 @@ import RangeBadge from 'components/Badge/RangeBadge'
 import { RowFixed } from 'components/Row'
 import HoverInlineText from 'components/HoverInlineText'
 import { USDC, USDT, WBTC } from '../../constants/tokens'
+import { useActiveWeb3React } from 'hooks/web3'
+import { DEFAULT_CHAIN_ID } from 'connectors'
 
 const Row = styled(Link)`
   align-items: center;
@@ -120,7 +122,8 @@ export interface PositionListItemProps {
 }
 
 export function getPriceOrderingFromPositionForUI(
-  position?: Position
+  position?: Position,
+  chainId: ChainId = DEFAULT_CHAIN_ID
 ): {
   priceLower?: Price<Token, Token>
   priceUpper?: Price<Token, Token>
@@ -135,7 +138,7 @@ export function getPriceOrderingFromPositionForUI(
   const token1 = position.amount1.currency
 
   // if token0 is a dollar-stable asset, set it as the quote token
-  const stables = [USDT[ChainId.POLYGON_AMOY], USDC[ChainId.POLYGON_AMOY]]
+  const stables = [USDT[chainId], USDC[chainId]]
   if (stables.some((stable) => stable.equals(token0))) {
     return {
       priceLower: position.token0PriceUpper.invert(),
@@ -146,7 +149,7 @@ export function getPriceOrderingFromPositionForUI(
   }
 
   // if token1 is an ETH-/BTC-stable asset, set it as the base token
-  const bases = [...Object.values(WETH9), WBTC[ChainId.POLYGON_AMOY]]
+  const bases = [...Object.values(WETH9), WBTC[chainId]]
   if (bases.some((base) => base.equals(token1))) {
     return {
       priceLower: position.token0PriceUpper.invert(),
@@ -188,6 +191,8 @@ export default function PositionListItem({ positionDetails }: PositionListItemPr
   const token0 = useToken(token0Address)
   const token1 = useToken(token1Address)
 
+  const { chainId } = useActiveWeb3React()
+
   const currency0 = token0 ? unwrappedToken(token0) : undefined
   const currency1 = token1 ? unwrappedToken(token1) : undefined
 
@@ -202,7 +207,7 @@ export default function PositionListItem({ positionDetails }: PositionListItemPr
   }, [liquidity, pool, tickLower, tickUpper])
 
   // prices
-  let { priceLower, priceUpper, base, quote } = getPriceOrderingFromPositionForUI(position)
+  let { priceLower, priceUpper, base, quote } = getPriceOrderingFromPositionForUI(position, chainId)
   const inverted = token1 ? base?.equals(token1) : undefined
   const currencyQuote = inverted ? currency1 : currency0
   const currencyBase = inverted ? currency0 : currency1

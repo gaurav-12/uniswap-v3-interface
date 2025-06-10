@@ -5,17 +5,19 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import getLibrary from '../utils/getLibrary'
 
 import { NetworkConnector } from './NetworkConnector'
-import { SupportedChainId } from 'constants/addresses'
+import { SupportedChainId, SUPPORTED_CHAIN_IDS } from 'constants/addresses'
 
 export const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.POLYGON_AMOY]: 'https://rpc-amoy.polygon.technology',
+  [SupportedChainId.BSC_TESTNET]: 'https://data-seed-prebsc-1-s1.binance.org:8545',
+  [SupportedChainId.BSC]: 'https://bsc-dataseed.binance.org/',
 }
 
-const SUPPORTED_CHAIN_IDS = [ChainId.POLYGON_AMOY]
+export const DEFAULT_CHAIN_ID = ChainId.BSC_TESTNET
 
 export const network = new NetworkConnector({
   urls: NETWORK_URLS,
-  defaultChainId: ChainId.POLYGON_AMOY,
+  defaultChainId: DEFAULT_CHAIN_ID,
 })
 
 let networkLibrary: Web3Provider | undefined
