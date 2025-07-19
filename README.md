@@ -14,6 +14,9 @@
 git clone https://github.com/fullstack-development/uniswap-v3-interface.git
 ```
 
+### Note:
+Use `v3-bsc-support` branch for BSC(testnet and mainnet) support, as `v3` uses Polygon Amoy(testnet).
+
 2. Install dependencies
 
 ```bash
@@ -47,3 +50,7 @@ export NODE_OPTIONS=--openssl-legacy-provider
 ```bash
 yarn build
 ```
+
+## Smart Contracts
+- Clone [this](https://github.com/gaurav-12/Uniswap-v3-Fork-SC.git) v3 SC repo, and follow the instructions in it to deploy all the necessary contracts.
+- After noting down all the contract addresses, place them in all the appropriate constant and connector files.
