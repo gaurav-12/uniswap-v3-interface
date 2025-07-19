@@ -20,6 +20,12 @@ git clone https://github.com/fullstack-development/uniswap-v3-interface.git
 yarn
 ```
 
+### Note:
+The project uses yarn `4.2.2`, with node `20.0`, for which the following commands can be followed in case of errors:
+- `corepack enable`
+- `corepack prepare yarn@4.2.2 --activate`
+- `yarn -v` should return `4.2.2`
+
 ## Development
 
 1. Start the server
@@ -28,11 +34,11 @@ yarn
 yarn start
 ```
 
-### Note:
-The project uses yarn `4.2.2`, with node `20.0`, for which the following commands can be followed in case of errors:
-- `corepack enable`
-- `corepack prepare yarn@4.2.2 --activate`
-- `yarn -v` should return `4.2.2`
+### To resolve `code: 'ERR_OSSL_EVP_UNSUPPORTED'`
+Either add or export the following variable in the terminal:
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
 
 ## Production
 
