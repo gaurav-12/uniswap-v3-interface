@@ -28,6 +28,12 @@ yarn
 yarn start
 ```
 
+### Note:
+The project uses yarn `4.2.2`, with node `20.0`, for which the following commands can be followed in case of errors:
+- `corepack enable`
+- `corepack prepare yarn@4.2.2 --activate`
+- `yarn -v` should return `4.2.2`
+
 ## Production
 
 1. Build the app
